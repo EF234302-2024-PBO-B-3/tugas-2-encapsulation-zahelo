@@ -54,8 +54,8 @@ public class Program
         Console.WriteLine($"Balance after withdrawal: {account.GetBalance()}");
 
         // Extra
-        FitnessTracker user1 = new FitnessTracker("Fubuki");
-        FitnessTracker user2 = new FitnessTracker("Suisei");
+        FitnessTracker user1 = new FitnessTracker("Fubuki", 0, 0, 0);
+        FitnessTracker user2 = new FitnessTracker("Suisei", 0, 0, 0);
 
         // Add data for user 1
         user1.AddSteps(5000);

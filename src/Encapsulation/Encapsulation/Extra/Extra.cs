@@ -4,7 +4,6 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Encapsulation.Extra;
 
 /*
  * Tuliskan spesifikasi soal Anda disini. 
@@ -33,12 +32,15 @@ DisplaySummary() – menampilkan ringkasan kebugaran
 /*
  * Implementasikan solusi kelas dari soal Anda disini dan eksekusi implementasinya di Program.cs
  */
+
+namespace Encapsulation.Extra
+{
     public class FitnessTracker
     {
-        private string _userName;
-        private int _steps;
-        private double _caloriesBurned;
-        private int _activeMinutes;
+        private string _userName = "Unknown";  // Inisialisasi dengan nilai default
+        private int _steps = 0;
+        private double _caloriesBurned = 0;
+        private int _activeMinutes = 0;
 
         public string UserName
         {
@@ -49,24 +51,27 @@ DisplaySummary() – menampilkan ringkasan kebugaran
         public int Steps
         {
             get { return _steps; }
+            set { _steps = value > 0 ? value : 0; }
         }
 
         public double CaloriesBurned
         {
             get { return _caloriesBurned; }
+            set { _caloriesBurned = value > 0 ? value : 0; }
         }
 
         public int ActiveMinutes
         {
             get { return _activeMinutes; }
+            set { _activeMinutes = value > 0 ? value : 0; }
         }
 
-        public FitnessTracker(string userName)
+        public FitnessTracker(string userName, int steps, double caloriesBurned, int activeMinutes)
         {
             UserName = userName;
-            _steps = 0;
-            _caloriesBurned = 0;
-            _activeMinutes = 0;
+            Steps = steps;
+            CaloriesBurned = caloriesBurned;
+            ActiveMinutes = activeMinutes;
         }
 
         public void AddSteps(int steps)
@@ -114,27 +119,5 @@ DisplaySummary() – menampilkan ringkasan kebugaran
             Console.WriteLine();
         }
     }
-
-    public class Program
-    {
-        public static void Main(string[] args)
-        {
-            // Create two users for fitness tracking
-            FitnessTracker user1 = new FitnessTracker("John");
-            FitnessTracker user2 = new FitnessTracker("Jane");
-
-            // Add data for user 1
-            user1.AddSteps(5000);
-            user1.AddCalories(300);
-            user1.AddActiveMinutes(60);
-
-            // Add data for user 2
-            user2.AddSteps(7500);
-            user2.AddCalories(450);
-            user2.AddActiveMinutes(90);
-
-            // Display summaries
-            user1.DisplaySummary();
-            user2.DisplaySummary();
-    }
 }
+
