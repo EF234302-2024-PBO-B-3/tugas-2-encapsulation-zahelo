@@ -3,6 +3,7 @@ using Encapsulation.Employment;
 using System;
 using Encapsulation.Calendar;
 using Encapsulation.Banking;
+using Encapsulation.Extra;
 
 namespace Encapsulation;
 
@@ -53,6 +54,24 @@ public class Program
         Console.WriteLine($"Balance after withdrawal: {account.GetBalance()}");
 
         // Extra
+        FitnessTracker user1 = new FitnessTracker("Fubuki");
+        FitnessTracker user2 = new FitnessTracker("Suisei");
+
+        // Add data for user 1
+        user1.AddSteps(5000);
+        user1.AddCalories(300);
+        user1.AddActiveMinutes(60);
+
+        // Add data for user 2
+        user2.AddSteps(7500);
+        user2.AddCalories(450);
+        user2.AddActiveMinutes(90);
+
+        // Display summaries
+        Console.WriteLine("Fitness Summary for User 1:");
+        user1.DisplaySummary();
+        Console.WriteLine("Fitness Summary for User 2:");
+        user2.DisplaySummary();
 
     }
 }
